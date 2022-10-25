@@ -6,6 +6,12 @@ import java.io.PrintWriter;
 import java.util.Scanner;
 
 public class Part2_B {
+	
+	private class stackStrikeEdgeZero {
+		
+		
+		
+	}
 
 	public static void main(String[] args) {
 
@@ -46,17 +52,12 @@ public class Part2_B {
 				}
 		
 				/*Game*/
-				do {
-					System.out.print("gameStack: "); gameStack.print();
-					System.out.print("tempStack: "); tempStack.print(); 
-					System.out.println();
-					
+				do {					
 					top = gameStack.top();
 					symmetricalTop = top;
 					
 					if(top <= gameStack.size()-1) {
 						if(((gameStack.top() == symmetricalTop) && (top != 1) && (top == gameStack.size()-2))) {
-							System.out.print("gameStack (symmetricalTop before): "); gameStack.print();
 							top = gameStack.top();
 							if(top <= tempStack.size() ) {
 								for(int j = 0; j < top; j++) {
@@ -65,7 +66,6 @@ public class Part2_B {
 							}
 							else {
 								outFile.print("0\n");
-								System.out.println("reached here! (little else)");
 								break;
 							}
 						}
@@ -74,7 +74,6 @@ public class Part2_B {
 								tempStack.push(gameStack.pop()); //changing top
 							}
 						} 
-						
 					}
 					else if (top >= gameStack.size()-1 && top <= tempStack.size()){
 						for(int j = 0; j < top; j++) {
@@ -83,7 +82,6 @@ public class Part2_B {
 					}
 					else {						
 						outFile.print("0\n");
-						System.out.println("reached here! (big else)");
 						break;
 					}
 				} while(gameStack.top() != 0);
